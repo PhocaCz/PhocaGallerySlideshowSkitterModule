@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade" version="3">
+	<name>mod_phocagallery_slideshow_skitter</name>
+	<author>Jan Pavelka (www.phoca.cz)</author>
+	<creationDate>27/01/2019</creationDate>
+	<authorEmail></authorEmail>
+	<authorUrl>https://www.phoca.cz</authorUrl>
+	<copyright>Jan Pavelka</copyright>
+	<license>GNU/GPL</license>
+	<version>4.3.11</version>
+	<description>MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_DESCRIPTION</description>
+	<projectName>PhocaGallerySlideshowSkitterModule</projectName>
+
+	<media destination="mod_phocagallery_slideshow_skitter" folder="media">
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>javascript</folder>
+	</media>
+
+	<files>
+		<folder>models</folder>
+		<folder>tmpl</folder>
+		<filename module="mod_phocagallery_slideshow_skitter">index.html</filename>
+		<filename module="mod_phocagallery_slideshow_skitter">mod_phocagallery_slideshow_skitter.php</filename>
+	</files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_phocagallery_slideshow_skitter.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_phocagallery_slideshow_skitter.sys.ini</language>
+	</languages>
+	
+	<config>
+		<fields name="params" addfieldpath="/modules/mod_phocagallery_slideshow_skitter/models/fields">
+			<fieldset name="basic">	
+			
+<field name="category_id" type="text" default="" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CATEGORY_ID_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CATEGORY_ID_DESC"/>
+
+<field name="count_images" type="text" default="5" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_COUNT_IMAGES_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_COUNT_IMAGES_DESC"/>
+
+<field name="width" type="text" default="970" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_WIDTH_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_WIDTH_DESC"/>
+
+<field name="height" type="text" default="230" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_HEIGHT_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_HEIGHT_DESC"/>
+
+<field name="image_ordering" type="list" default="1" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ORDERING_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ORDERING_DESC">
+	<option value="1">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ORDERING_ASC</option>
+	<option value="2">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ORDERING_DESC</option>
+	<option value="3">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_TITLE_ASC</option>
+	<option value="4">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_TITLE_DESC</option>
+	<option value="5">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_DATE_ASC</option>
+	<option value="6">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_DATE_DESC</option>
+	<option value="7">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ID_ASC</option>
+	<option value="8">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ID_DESC</option>
+	<option value="9">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_RANDOM</option>
+	<option value="11">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_COUNT_ASC</option>
+   <option value="12">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_COUNT_DESC</option>
+   <option value="13">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_AVERAGE_ASC</option>
+   <option value="14">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_AVERAGE_DESC</option>
+   <option value="15">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_HITS_ASC</option>
+	<option value="16">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_HITS_DESC</option>
+</field>
+
+<field name="spacer2" type="spacer" hr="true"/>
+
+<field name="url_link" type="list" default="0" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_URL_LINK_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_URL_LINK_DESC">
+	<option value="0">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO_LINK</option>
+	<option value="1">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EXTERNAL_LINK1</option>
+	<option value="2">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EXTERNAL_LINK2</option>
+	<option value="3">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_URL_CATEGORY_LINK</option>
+	<option value="10">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_SINGLE_LINK</option>
+</field>
+
+<field name="target" type="list" class="inputbox" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_TARGET_LINK_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_TARGET_LINK_DESC" default="_self">
+	<option value="_self">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_OPEN_WINDOW_SELF</option>
+	<option value="_blank">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_OPEN_WINDOW_BLANK</option>
+	<option value="_parent">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_OPEN_WINDOW_PARENT</option>
+	<option value="_top">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_OPEN_WINDOW_TOP</option>
+</field>
+
+
+<field name="single_link" type="text" default="" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_SINGLE_LINK_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_SINGLE_LINK_DESC"/>
+
+<field name="phocahead1" type="phocaheadmod" default="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_SLIDESHOW_SETTINGS_LABEL" label="" description=""/>
+
+<field name="animation" type="list" default="random" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ANIMATION_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ANIMATION_DESC">
+	<option value="cube">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CUBE</option>
+	<option value="cubeRandom">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CUBERANDOM</option>
+    <option value="block">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_BLOCK</option>
+    <option value="cubeStop">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CUBESTOP</option>
+	<option value="cubeHide">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CUBEHIDE</option>
+	<option value="cubeSize">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CUBESIZE</option>
+    <option value="horizontal">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_HORIZONTAL</option>
+    <option value="showBars">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_SHOWBARS</option>
+    <option value="showBarsRandom">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_SHOWBARSRANDOM</option>
+    <option value="tube">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_TUBE</option>
+	<option value="fade">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_FADE</option>
+    <option value="fadeFour">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_FADEFOUR</option>
+    <option value="paralell">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_PARALELL</option>
+	<option value="blind">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_BLIND</option>
+    <option value="blindHeight">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_BLINDHEIGHT</option>
+    <option value="blindWidth">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_BLINDWIDTH</option>
+	<option value="directionTop">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_DIRECTIONTOP</option>
+	<option value="directionBottom">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_DIRECTIONBOTTOM</option>
+    <option value="directionRight">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_DIRECTIONRIGHT</option>
+    <option value="directionLeft">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_DIRECTIONLEFT</option>
+	<option value="cubeStopRandom">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CUBESTOPRANDOM</option>
+	<option value="cubeSpread">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CUBESPREAD</option>
+    <option value="cubeJelly">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CUBEJELLY</option>
+    <option value="glassCube">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_GLASSCUBE</option>
+    <option value="glassBlock">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_GLASSBLOCK</option>
+    <option value="circles">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CIRCLES</option>
+	<option value="circlesInside">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CIRCLESINSIDE</option>
+	<option value="circlesRotate">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CIRCLESROTATE</option>
+    <option value="cubeShow">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CUBESHOW</option>
+	<option value="upBars">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_UPBARS</option>
+    <option value="downBars">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_DOWNBARS</option>
+    <option value="hideBars">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_HIDEBARS</option>
+	<option value="swapBars">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_SWAPBARS</option>
+    <option value="swapBarsBack">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_SWAPBARSBACK</option>
+	<option value="swapBlocks">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_SWAPBLOCKS</option>
+    <option value="cut">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CUT</option>
+    <option value="random">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_RANDOM</option>
+	<option value="randomSmart">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_RANDOMSMART</option>
+</field>
+
+<field name="easing_default" type="list" default="null" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASING_DEFAULT_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASING_DEFAULT_DESC">
+	<option value="null">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="easeInQuad">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINQUAD</option>
+	<option value="easeInCubic">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINCUBIC</option>
+	<option value="easeInQuart">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINQUART</option>
+	<option value="easeInQuint">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINQUINT</option>
+	<option value="easeInSine">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINSINE</option>
+	<option value="easeInExpo">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINEXPO</option>
+	<option value="easeInCirc">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINCIRC</option>
+	<option value="easeInElastic">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINELASTIC</option>
+	<option value="easeInBack">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINBACK</option>
+	<option value="easeInBounce">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINBOUNCE</option>
+	<option value="easeOutQuad">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEOUTQUAD</option>
+	<option value="easeOutCubic">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEOUTCUBIC</option>
+	<option value="easeOutQuart">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEOUTQUART</option>
+	<option value="easeOutQuint">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEOUTQUINT</option>
+	<option value="easeOutSine">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEOUTSINE</option>
+	<option value="easeOutExpo">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEOUTEXPO</option>
+	<option value="easeOutCirc">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEOUTCIRC</option>
+	<option value="easeOutElastic">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEOUTELASTIC</option>
+	<option value="easeOutBack">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEOUTBACK</option>
+	<option value="easeOutBounce">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEOUTBOUNCE</option>
+	<option value="easeInOutQuad">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINOUTQUAD</option>
+	<option value="easeInOutCubic">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINOUTCUBIC</option>
+	<option value="easeInOutQuart">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINOUTQUART</option>
+	<option value="easeInOutQuint">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINOUTQUINT</option>
+	<option value="easeInOutSine">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINOUTSINE</option>
+	<option value="easeInOutExpo">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINOUTEXPO</option>
+	<option value="easeInOutCirc">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINOUTCIRC</option>
+	<option value="easeInOutElastic">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINOUTELASTIC</option>
+	<option value="easeInOutBack">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINOUTBACK</option>
+	<option value="easeInOutBounce">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EASEINOUTBOUNCE</option>
+</field>
+
+<field name="interval" type="text" default="2500" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_INTERVAL_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_INTERVAL_DESC"/>
+
+<field name="velocity" type="list" default="1" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_VELOCITY_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_VELOCITY_LABEL">
+	<option value="0.1">0.1</option>
+	<option value="0.2">0.2</option>
+	<option value="0.3">0.3</option>
+	<option value="0.4">0.4</option>
+	<option value="0.5">0.5</option>
+	<option value="0.6">0.6</option>
+	<option value="0.7">0.7</option>
+	<option value="0.8">0.8</option>
+	<option value="0.9">0.9</option>
+	<option value="1">1</option>
+	<option value="1.1">1.1</option>
+	<option value="1.2">1.2</option>
+	<option value="1.3">1.3</option>
+	<option value="1.4">1.4</option>
+	<option value="1.5">1.5</option>
+	<option value="1.6">1.6</option>
+	<option value="1.7">1.7</option>
+	<option value="1.8">1.8</option>
+	<option value="1.9">1.9</option>
+	<option value="2">2</option>
+</field>
+
+<field name="spacer2" type="spacer" hr="true"/>
+
+<field name="controls" type="list" default="false" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CONTROLS_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CONTROLS_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+
+<field name="controls_position" type="list" default="false" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CONTROLS_POSITION_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CONTROLS_POSITION_DESC">
+	<option value="center">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CENTER</option>
+	<option value="leftTop">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_LEFTTOP</option>
+	<option value="rightTop">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_RIGHTTOP</option>
+	<option value="leftBottom">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_LEFTBOTTOM</option>
+	<option value="rightBottom">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_RIGHTBOTTOM</option>
+</field>
+<field name="dots" type="list" default="false" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_DOTS_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_DOTS_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+
+<field name="preview" type="list" default="false" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_PREVIEW_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_PREVIEW_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+
+
+<field name="numbers" type="list" default="false" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NUMBERS_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NUMBERS_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+
+<field name="thumbs" type="list" default="false" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NAVIGATION_WITH_THUMBS_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NAVIGATION_WITH_THUMBS_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+
+<field name="numbers_align" type="list" default="left" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NUMBERS_ALIGN_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NUMBERS_ALIGN_DESC">
+	<option value="left">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_LEFT</option>
+	<option value="right">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_RIGHT</option>
+	<option value="center">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CENTER</option>
+</field>
+
+<field name="focus" type="list" default="false" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_FOCUS_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_FOCUS_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+<field name="focus_position" type="list" default="center" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_FOCUS_POSITION_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_FOCUS_POSITION_DESC">
+	<option value="center">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CENTER</option>
+	<option value="leftTop">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_LEFTTOP</option>
+	<option value="rightTop">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_RIGHTTOP</option>
+	<option value="leftBottom">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_LEFTBOTTOM</option>
+	<option value="rightBottom">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_RIGHTBOTTOM</option>
+</field>
+
+<field name="navigation" type="list" default="true" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NAVIGATION_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NAVIGATION_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+
+<field name="enable_navigation_keys" type="list" default="false" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ENABLE_NAVIGATION_KEYS_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ENABLE_NAVIGATION_KEYS_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+
+<field name="hideTools" type="list" default="false" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_HIDE_TOOLS_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_HIDE_TOOLS_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+
+
+<field name="label" type="list" default="true" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_LABEL_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_LABEL_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="1">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES_TITLE</option>
+	<option value="2">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES_DESCRIPTION</option>
+	<option value="3">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES_TITLE_DESCRIPTION</option>
+</field>
+
+<field name="width_label" type="text" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_WIDTH_LABEL_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_WIDTH_LABEL_DESC" default=""/>
+
+<field name="animateNumberActive" size="50" type="text" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ANIMATE_NR_ACTIVE_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ANIMATE_NR_ACTIVE_LABEL" default="{backgroundColor:'#cc3333', color:'#fff'}"/>
+<field name="animateNumberOver" size="50" type="text" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ANIMATE_NR_OVER_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ANIMATE_NR_OVER_LABEL" default="{backgroundColor:'#fff', color:'#000'}"/>
+<field name="animateNumberOut" size="50" type="text" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ANIMATE_NR_OUT_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_ANIMATE_NR_OUT_LABEL" default="{backgroundColor:'#333', color:'#fff'}"/>
+
+<field name="progressbar" type="list" default="false" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_PROGRESSBAR_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_PROGRESSBAR_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+<field name="progressbar_css" type="textarea" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_PROGRESSBAR_CSS_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_PROGRESSBAR_CSS_DESC" rows="3" cols="26" default="{top:'5px', left:'10px', height:10, borderRadius:'2px', width:200, backgroundColor:'#000', opacity:0.7}"/>
+
+<field name="phocahead1w" type="phocaheadmodwarning" default="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_EXPERTS_ONLY_LABEL" label="" description=""/>
+
+<field name="mouseOverButton" type="textarea" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_MOUSEOVERBUTTON_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_MOUSEOVERBUTTON_DESC" rows="2" cols="26" default="function() { $(this).stop().animate({opacity:0.5}, 200); }"/>
+<field name="mouseOutButton" type="textarea" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_MOUSEOUTBUTTON_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_MOUSEOUTBUTTON_DESC" rows="2" cols="26" default="function() { $(this).stop().animate({opacity:1}, 200); }"/>
+<field name="with_animation" type="text" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_WITH_ANIMATION_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_WITH_ANIMATION_DESC" default="[]"/>
+
+<!-- experimental -->
+<!--
+<field name="auto_play" type="list" default="true" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_AUTO_PLAY_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_AUTO_PLAY_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+<field name="stop_over" type="list" default="false" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_STOP_OVER_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_STOP_OVER_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+
+<field name="show_randomly" type="list" default="false" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_SHOW_RANDOMLY_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_SHOW_RANDOMLY_DESC">
+	<option value="false">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_NO</option>
+	<option value="true">MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_YES</option>
+</field>
+-->
+
+
+			</fieldset>
+
+			
+			<fieldset name="advanced">
+		<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+				
+		<field name="module_css_style" type="text" label="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CSS_STYLE_LABEL" description="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER_CSS_STYLE_DESC"/>
+				
+		<field name="cache" type="list" default="0" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+			<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+		</field>
+			</fieldset>
+		</fields>
+	</config>
+
+	<updateservers>
+		<server type="extension" name="MOD_PHOCAGALLERY_SLIDESHOW_SKITTER"><![CDATA[https://raw.githubusercontent.com/PhocaCz/PhocaGallerySlideshowSkitterModule/master/manifest.xml]]></server>
+	</updateservers>
+</extension>
