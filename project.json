@@ -9,6 +9,8 @@
 	"description": "Phoca Gallery Slideshow Skitter Module is a Joomla! module which displays slideshow of Phoca Gallery images in module positon.",
 	"projectUrl": "https://www.phoca.cz/phoca-gallery-slideshow-skitter-module",
 	"projectDocumentationUrl": "https://www.phoca.cz/documentation/category/74-phoca-gallery-slideshow-skitter-module",
+	"projectMainComponent": "Phoca Gallery",
+	"projectMainComponentInfoUrl": "https://www.phoca.cz/project/phocagallery-joomla-gallery",
 	"projectDemo" : {
 		"Joomla! 2.5 Demo": "https://www.phoca.cz/joomlademo/phoca-gallery-skitter-module"
 	},
